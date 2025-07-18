@@ -12,6 +12,7 @@ This project focuses on building predictive models to forecast **inflation rates
 ## Data Sources
 - Inflation rate data (e.g., CPI)
 - Economic indicators (e.g., PPI, wages, commodity prices)
+- Gathered from FRED via API
 
 ## Techniques Used
 - Exploratory Data Analysis (EDA) with pandas and matplotlib

@@ -40,7 +40,6 @@ Follow the notebook cells sequentially for data loading, preprocessing, modeling
 
 
 ## Results Summary
-<img width="1390" height="590" alt="image" src="https://github.com/user-attachments/assets/554e2a27-9ff3-4a9c-9dff-aa680ec6cd7e" />
 <img width="1390" height="590" alt="image" src="https://github.com/user-attachments/assets/7e999d4f-625c-485b-ab82-0cf744601cc3" />
 <img width="1163" height="624" alt="image" src="https://github.com/user-attachments/assets/ba1e9c70-8d96-466b-8998-d2fdf9fffe61" />
 

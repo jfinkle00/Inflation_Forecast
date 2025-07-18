@@ -47,6 +47,7 @@ Follow the notebook cells sequentially for data loading, preprocessing, modeling
 LSTM Predictions
 
 Date	
+
 2024-07-01	315.009766
 
 2024-08-01	315.674164

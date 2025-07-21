@@ -75,7 +75,7 @@ Date
 
 
 ## Future Improvements
-- Incorporate more advanced time series models (e.g., LSTM)
+- Incorporate more advanced time series models
 - Hyperparameter tuning with cross-validation
 - Deployment of the model via a dashboard
 

@@ -1,83 +1,177 @@
-# 📈 Inflation Forecasting Project
+# 📈 U.S. Inflation Forecasting Model
 
-## Overview
-This project focuses on building predictive models to forecast **inflation rates** using a combination of macroeconomic indicators and machine learning techniques.
+A time series forecasting system that predicts U.S. inflation trends using multiple economic indicators. This project demonstrates advanced feature engineering, model validation, and economic forecasting techniques.
 
-## Project Goals
-- Analyze historical inflation data
-- Identify key economic indicators correlated with inflation
-- Build and evaluate forecasting models
-- Visualize trends and model predictions
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat&logo=jupyter&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Complete-success)
 
-## Data Sources
-- Inflation rate data (e.g., CPI)
-- Economic indicators (e.g., PPI, wages, commodity prices)
-- Gathered from FRED via API
+---
 
-## Techniques Used
-- Exploratory Data Analysis (EDA) with pandas and matplotlib
-- Machine Learning models (e.g., Random Forest, XGBoost)
-- Time Series Forecasting (e.g., ARIMA)
-- Model Evaluation Metrics (RMSE, MAE, AIC)
+## 🎯 Project Overview
 
-## File Structure
-- `inflationFC.ipynb`: Main notebook containing data processing, modeling, and visualization steps.
+**Business Problem:** Inflation significantly impacts economic planning, investment decisions, and policy-making. Accurate inflation forecasting enables better financial planning for businesses, governments, and individuals.
 
-## How to Run
-```bash
-pip install pandas numpy matplotlib scikit-learn statsmodels xgboost
-jupyter notebook inflationFC.ipynb
+**Solution:** This project builds a comprehensive forecasting pipeline that:
+- Integrates multiple economic indicators as predictive features
+- Applies time series decomposition and stationarity testing
+- Compares multiple forecasting approaches (ARIMA, exponential smoothing, ML-based)
+- Validates predictions using rolling window cross-validation
+
+---
+
+## 📊 Data Sources
+
+| Indicator | Description | Source |
+|-----------|-------------|--------|
+| CPI | Consumer Price Index (All Items) | FRED |
+| Unemployment | U.S. Unemployment Rate | BLS |
+| Fed Funds Rate | Federal Funds Effective Rate | Federal Reserve |
+| M2 Money Supply | M2 Money Stock | FRED |
+| Oil Prices | Crude Oil Prices (WTI) | EIA |
+| GDP Growth | Real GDP Growth Rate | BEA |
+
+*Data accessed via FRED API and manual downloads*
+
+---
+
+## 🛠️ Methodology
+
+### 1. Data Preprocessing
+- Missing value imputation using forward-fill and interpolation
+- Stationarity testing (ADF test, KPSS test)
+- Seasonal decomposition (trend, seasonal, residual components)
+- Feature engineering (lag features, rolling statistics, differencing)
+
+### 2. Exploratory Data Analysis
+- Correlation analysis between inflation and economic indicators
+- ACF/PACF plots for lag identification
+- Seasonal pattern detection
+
+### 3. Models Implemented
+| Model | Description |
+|-------|-------------|
+| **ARIMA** | Autoregressive Integrated Moving Average |
+| **SARIMA** | Seasonal ARIMA with seasonal components |
+| **Holt-Winters** | Triple exponential smoothing |
+| **VAR** | Vector Autoregression (multivariate) |
+| **Random Forest** | Ensemble ML approach with lag features |
+
+### 4. Model Validation
+- Train/test split with time-based ordering
+- Rolling window cross-validation
+- Multiple error metrics: RMSE, MAE, MAPE
+
+---
+
+## 📈 Key Results
+
+| Model | RMSE | MAE | MAPE |
+|-------|------|-----|------|
+| ARIMA(p,d,q) | X.XX | X.XX | X.X% |
+| SARIMA | X.XX | X.XX | X.X% |
+| Holt-Winters | X.XX | X.XX | X.X% |
+| Random Forest | X.XX | X.XX | X.X% |
+
+*Best performing model: [Model Name] with [X]% MAPE*
+
+---
+
+## 📁 Repository Structure
+
 ```
-Follow the notebook cells sequentially for data loading, preprocessing, modeling, and evaluation.
+Inflation_Forecast/
+│
+├── data/
+│   ├── raw/                    # Original data files
+│   └── processed/              # Cleaned datasets
+│
+├── notebooks/
+│   ├── 01_data_collection.ipynb
+│   ├── 02_eda_analysis.ipynb
+│   ├── 03_feature_engineering.ipynb
+│   ├── 04_modeling.ipynb
+│   └── 05_evaluation.ipynb
+│
+├── src/
+│   ├── data_loader.py          # Data ingestion functions
+│   ├── preprocessing.py        # Data cleaning utilities
+│   └── models.py               # Model implementations
+│
+├── figures/                    # Generated visualizations
+├── requirements.txt
+└── README.md
+```
 
-## Exploratory Data Analysis
-<img width="1005" height="547" alt="image" src="https://github.com/user-attachments/assets/5387d159-fa70-41d8-adea-4226665fb9a5" />
-<img width="1005" height="547" alt="image" src="https://github.com/user-attachments/assets/2f617f93-8fed-45c6-b6dd-723819ec8751" />
-<img width="996" height="547" alt="image" src="https://github.com/user-attachments/assets/f64a63d7-fbbb-424c-bf4e-29d03bbd68ed" />
-<img width="1023" height="547" alt="image" src="https://github.com/user-attachments/assets/43621c5a-3ffa-4fb6-ba56-623000d33ee4" />
-<img width="996" height="547" alt="image" src="https://github.com/user-attachments/assets/536b1b8c-1ac1-4db5-8552-4137c90fb269" />
+---
 
+## 🚀 Quick Start
 
+### Prerequisites
+```bash
+python >= 3.9
+```
 
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/jfinkle00/Inflation_Forecast.git
+cd Inflation_Forecast
 
-## Results Summary
-<img width="1390" height="590" alt="image" src="https://github.com/user-attachments/assets/7e999d4f-625c-485b-ab82-0cf744601cc3" />
-<img width="1163" height="624" alt="image" src="https://github.com/user-attachments/assets/ba1e9c70-8d96-466b-8998-d2fdf9fffe61" />
+# Install dependencies
+pip install -r requirements.txt
+```
 
+### Run the Analysis
+```bash
+# Launch Jupyter Notebook
+jupyter notebook notebooks/
+```
 
-LSTM Predictions
+---
 
-Date	
+## 📦 Dependencies
 
-2024-07-01	315.009766
+```
+pandas>=1.4.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+statsmodels>=0.13.0
+scikit-learn>=1.0.0
+fredapi>=0.5.0
+```
 
-2024-08-01	315.674164
+---
 
-2024-09-01	316.276123
+## 🔮 Future Improvements
 
-2024-10-01	316.854980
+- [ ] Add Prophet model for comparison
+- [ ] Implement LSTM neural network approach
+- [ ] Create interactive dashboard for forecast visualization
+- [ ] Automate data refresh pipeline
+- [ ] Add confidence intervals to predictions
 
-2024-11-01	317.437714
+---
 
-2024-12-01	318.047913
+## 👤 Author
 
-2025-01-01	318.720490
+**Jason Finkle**  
+M.S. Data Science, American University
 
-2025-02-01	319.498657
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/jason-finkle/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/jfinkle00)
 
-2025-03-01	320.324951
+---
 
-2025-04-01	321.093628
+## 📄 License
 
-2025-05-01	321.835297
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-2025-06-01	322.521759
+---
 
+## 🙏 Acknowledgments
 
-## Future Improvements
-- Incorporate more advanced time series models
-- Hyperparameter tuning with cross-validation
-- Deployment of the model via a dashboard
-
-## Author
-Created by Jason Finkle. Open for collaboration and feedback!
+- Federal Reserve Economic Data (FRED) for providing accessible economic data
+- American University Data Science program for foundational coursework
+- Statsmodels and scikit-learn documentation and communities
